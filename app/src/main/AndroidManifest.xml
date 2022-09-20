@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.digivault">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:node="replace" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light">
+        <activity
+            android:name=".FullScreenImage"
+            android:exported="false" />
+        <activity
+            android:name=".Passcode"
+            android:exported="false"
+            android:theme="@style/Theme.DigiVault"/>
+        <activity
+            android:name=".CreatePasscode"
+            android:exported="false"
+            android:theme="@style/Theme.DigiVault"/>
+        <activity
+            android:name=".FullView"
+            android:exported="true" />
+        <activity
+            android:name=".GalleryActivity"
+            android:exported="true"
+            android:theme="@style/Theme.DigiVault.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:noHistory="true"
+            android:theme="@style/Theme.DigiVault"/>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:noHistory="true"
+            android:theme="@style/Theme.DigiVault">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/CropTheme"/>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.digivault.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+</manifest>
